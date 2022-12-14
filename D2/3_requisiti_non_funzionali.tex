@@ -1,0 +1,74 @@
+\section{Requisiti Non Funzionali}
+In questo capitolo sono stati ripresi i requisiti non funzionali e sono state costruite delle tabelle strutturate, nella quale sono state inserite le proprietà che deve avere il sistema, una descrizione di queste proprietà e un valore di misura per capire quando il requisito non funzionale è stato soddisfatto oppure no.
+
+\subsection{Privacy}
+\begin{tabularx}{\textwidth}{ |X |X| X|}
+    \hline
+    \textbf{Proprietà} & \textbf{Descrizione} & \textbf{Misura} \\
+    \hline
+    Regolamento per la protezione dei dati (GDPR) & Il Regolamento Generale sulla Protezione dei Dati in sigla RGPD (o GDPR in inglese General Data Protection Regulation), ufficialmente regolamento (UE) n. 2016/679, è un regolamento dell'Unione europea in materia di trattamento dei dati personali e di privacy. & I dati personali dell’utente (email, password) non vengono condivisi con terze parti.\\
+    \hline
+\end{tabularx}
+
+\subsection{Sicurezza}
+\begin{tabularx}{\textwidth}{ |X |X| X|}
+    \hline
+    \textbf{Proprietà} & \textbf{Descrizione} & \textbf{Misura} \\
+    \hline
+    Connessione sicura & Lo scambio di dati tra client e server deve avvenire in maniera criptata. & La trasmissione dati avviene mediante il protocollo https. \\
+    \hline
+    Caratteristiche password & Le password utilizzate all’interno del sistema devono essere delle strong password. & Le password utilizzate per gli account devono rispettare le seguenti caratteristiche: minimo otto caratteri, minimo due numeri, minimo un carattere speciale ed inoltre devono esservi presenti sia lettere minuscole che maiuscole. \\
+    \hline
+    Memorizzazione password tramite cifratura & Le password verranno memorizzate all’interno del database in maniera cifrata. & Le password vengono cifrate attraverso la funzione hash crittografica SHA256. \\
+    \hline
+\end{tabularx}
+
+\subsection{Efficienza}
+\begin{tabularx}{\textwidth}{ |X |X| X|}
+    \hline
+    \textbf{Proprietà} & \textbf{Descrizione} & \textbf{Misura} \\
+    \hline
+    Tempo di risposta del sistema per la somministrazione dei quiz & Il tempo massimo entro il quale il sistema deve somministrare il quiz successivo, dopo che si ha già risposto al quiz precedente. & Il lasso di tempo non è superiore a tre secondi.\\
+    \hline
+    Tempo allestimento partita online & Il lasso di tempo che intercorre tra il matching con un avversario e la ricezione del primo quiz da parte dei due utenti online. & Il lasso di tempo non è superiore a dieci secondi. \\
+    \hline
+    Tempo massimo di caricamento della classifica & Il tempo massimo entro il quale, nel momento in cui un utente accede alla classifica globale, vengono visualizzati i primi cento giocatori. & Il lasso di tempo non è superiore a tre secondi. \\
+    \hline
+    Tempo massimo di ricerca di un giocatore nella classifica & Il tempo massimo entro il quale, nel momento in cui viene effettuata la ricerca di un giocatore all'interno della classifica, viene visualizzato (se presente) l'utente cercato. & Il lasso di tempo non è superiore a due secondi. \\
+    \hline
+\end{tabularx}
+
+\subsection{Portabilità}
+\begin{tabularx}{\textwidth}{ |X |X| X|}
+    \hline
+    \textbf{Proprietà} & \textbf{Descrizione} & \textbf{Misura} \\
+    \hline
+    Compatibilità con browser differenti & L'applicazione dovrà poter essere utilizzata e quindi funzionare correttamente sul browser Google Chrome, Mozilla Firefox e Opera.
+    & Le versioni dei browser dalle quale l'applicazione li supporta sono, dalla 107.0.5304.87 per Google Chrome, dalla 106.0.2 per Mozilla Firefox e dalla 92.0.4561.21 per Opera.\\
+    \hline
+    Visualizzazione dell'interfaccia su dispositivi differenti & L’interfaccia deve essere visualizzata in maniera adeguata sia su desktop, ma anche su dispositivi mobili. 
+    & Il range di pixel entro il quale l'applicazione dovrà essere visualizzata in maniera adeguata deve essere 412x914 px - 1920x1080 px \\
+    \hline
+\end{tabularx}
+
+\subsection{Scalabilità}
+\begin{tabularx}{\textwidth}{ |X |X| X|}
+    \hline
+    \textbf{Proprietà} & \textbf{Descrizione} & \textbf{Misura} \\
+    \hline
+    Elaborazione con un numero crescente di utenti & Capacità del sistema di gestire un numero crescente di utenti in simultanea. & Garantita fino a 10.000 utenti in simultanea. \\
+    \hline
+    Memorizzazione dei dati con un numero crescente di utenti & Capacità del sistema di gestire i dati generati da un alto numero di utenti. & Garantita fino a 10.000 utenti. \\
+    \hline
+\end{tabularx}
+
+\subsection{Usabilità}
+\begin{tabularx}{\textwidth}{ |l |X| X|}
+    \hline
+    \textbf{Proprietà} & \textbf{Descrizione} & \textbf{Misura} \\
+    \hline
+    Usabilità & L’interfaccia dell’applicazione dovrà essere facile ed intuitiva. & Preso un utente medio che non conosce l’applicazione, questo è in grado di comprenderne le funzionalità principali in 5-10 minuti.\\
+    \hline
+\end{tabularx}
+
+

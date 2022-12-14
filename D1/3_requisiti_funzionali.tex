@@ -1,0 +1,145 @@
+\section{Requisiti Funzionali}
+In questa sezione sono elencati i requisiti funzionali dell'applicazione, ovvero tutte quelle funzionalità che ci si aspetta che il sistema sia in grado di fornire. 
+Ogni requisito sia funzionale, che non funzionale deve rispondere ad un obbiettivo.
+
+\subsection{Compendio degli alfabeti} \label{req_compendio}
+Attraverso un pulsante info, il sistema dà la possibilità all'utente di accedere alle seguenti informazioni:
+\begin{itemize}
+    \item breve descrizione degli alfabeti;
+    \item tabella contenente tutti i simboli dell'alfabeto Hiragana;
+    \item tabella contenente tutti i simboli dell'alfabeto Katakana;
+    \item lista dei simboli dell'alfabeto Kanji.
+\end{itemize}
+Questa funzionalità è disponibile per tutti i tipi di utente. Questo requisito risponde all'obbiettivo \ref{o1}.
+
+\subsection{Registrazione} \label{req_registrazione}
+L'applicazione permetterà all'utente di creare un proprio account, per far ciò verrà richiesto all'utente di fornire i seguenti dati:
+\begin{itemize}
+    \item username, il quale dovrà essere univoco;
+    \item e-mail, il quale dovrà essere univoca;
+    \item password;
+    \item nazione.
+\end{itemize}
+Inseriti i dati, prima di completare la registrazione l'utente dovrà cliccare sul reCAPTCHA, per dimostrare di essere un umano. Effettuata la registrazione verrà inviata all’utente un’e-mail di conferma dell’avvenuta registrazione. \\
+Questa funzionalità è disponibile per i soli utenti guest. Questo requisito risponde all'obbiettivo \ref{o3}.
+
+\subsection{Login con credenziali} \label{req_login_con credenziali}
+Il sistema permetterà all'utente di accedere al proprio account, utilizzando le proprie credenziali. Questa funzionalità è disponibile per gli utenti registrati e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o6}. 
+
+\subsection{Login con google} \label{req_login_con_google}
+Il sistema permetterà all'utente di accedere alla piattaforma utilizzando il proprio account google. In questo caso non verrà inviata alcuna e-mail, anche se l'utente sarà effettivamente registrato. \\
+Questa funzionalità è disponibile per gli utenti non registrati. Questo requisito risponde all'obbiettivo \ref{o6}. 
+
+\subsection{Logout} \label{req_logout}
+Il sistema permetterà all'utente di uscire dal proprio account. Questa funzionalità è disponibile per gli utenti registrati e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o6}. 
+
+\subsection{Visualizzazione dati personali} \label{req_visualizzazione_dati_personali}
+L'applicazione deve dare la possibilità all'utente di visualizzare i propri dati personali, inseriti in fase di registrazione, ovvero:
+\begin{itemize}
+    \item username;
+    \item e-mail;
+    \item password;
+    \item nazione.
+\end{itemize}
+Questi dati saranno visualizzabili accedendo alla propria area personale. \\
+Questa funzionalità è disponibile per gli utenti registrati e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o6}. 
+
+\subsection{Modifica e-mail} \label{req_modifica_email} 
+Il sistema deve permettere all'utente di modificare la propria e-mail. La modifica dell'e-mail avviene accedendo alla propria area personale, modificando direttamente l'e-mail precedente presente in un 'box' con una nuova e-mail e cliccando sul pulsante 'confirm'. \\
+Questa funzionalità è disponibile per gli utenti registrati e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o6}. 
+
+\subsection{Modifica password} \label{req_modifica_password} 
+L'applicazione deve permettere all'utente di modificare la propria password. La modifica della password avviene accedendo alla propria area personale, inserendo la password attuale, inserendo due volte la nuova password e cliccando sul pulsante 'confirm'. \\
+Questa funzionalità è disponibile per gli utenti registrati e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o6}. 
+
+\subsection{Recupero nome utente e password} \label{req_recupero_password}
+Il sistema permetterà all'utente di recuperare il proprio username o la propria password. Per confermare il recupero della password, l'utente dovrà inserire la propria e-mail in un apposito 'box', cliccare sul reCAPTCHA per dimostrare di non essere un Bot e infine cliccare sul pulsante 'reset'. A questo punto verrà inviata all'utente una e-mail, che conterrà il proprio username e una nuova password temporanea. \\
+Questa funzionalità è disponibile per gli utenti registrati e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o6}.
+
+\subsection{Profilo Premium} \label{req_passa_premium}
+A ogni utente registrato l'applicazione metterà a disposizione la possibilità di fare l’upgrade del proprio profilo, passando quindi a "utente premium", permettendogli di sbloccare contenuti e funzionalità esclusive. L'upgrade avverrà tramite una transazione una tantum di 2.99\euro. La transazione dovrà avvenire tramite PayPal all’indirizzo: \href{mailto:lorenzo.dambro@gmail.com}{lorenzo.dambro@gmail.com}. In seguito alla transazione verrà inviata all'utente un e-mail di conferma dell'avvenuto pagamento. \\
+Questa funzionalità è disponibile per i soli utenti registrati. Questo requisito risponde all'obbiettivo \ref{o3}. 
+
+\subsection{Quiz tipo 1} \label{req_quiz_1}
+L'applicazione deve permettere all'utente di giocare al seguente quiz, dato un simbolo causale, appartenente ad uno degli alfabeti, l'utente dovrà scrivere la corrispondente fonetica/significato. \\
+Questa funzionalità è disponibile per gli utenti guest e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o2}.
+
+\subsection{Quiz tipo 2} \label{req_quiz_2}
+L'applicazione deve permettere all'utente di giocare al seguente quiz, data una fonetica/significato casuale, appartenente ad uno degli alfabeti scelti, l'utente dovrà selezionare il simbolo corrispondente tra i 4 disponibili. \\ 
+Questa funzionalità è disponibile per gli utenti guest e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o2}.
+
+\subsection{Quiz tipo 3} \label{req_quiz_3}
+L'applicazione deve permettere all'utente di giocare al seguente quiz, dato un simbolo causale, appartenente ad uno degli alfabeti, l'utente dovrà selezionare la fonetica/significato corrispondente. \\
+Questa funzionalità è disponibile per gli utenti guest e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o2}.
+
+\subsection{Quiz tipo 4} \label{req_quiz_4}
+L'applicazione deve permettere all'utente di giocare al seguente quiz, data una fonetica (Hiragana-Katakana) / significato (Kanji) casuale, appartenente ad uno degli alfabeti scelti, l'utente dovrà disegnare tale simbolo correttamente. Disegnato il simbolo l'utente potrà cliccare sul pulsante 'confirm' per verificare il simbolo disegnato, 'interpret' per interpretare il simbolo disegnato oppure 'cancel' per eliminare quanto disegnato. \\
+Questa funzionalità è disponibile per gli utenti guest e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o2}.
+
+\subsection{Single-player} \label{req_scegli_modalità_single_player}
+Il sistema deve permettere all'utente di scegliere in quale modo esercitarsi in maniera individuale, se con la modalità di 'Training' o con quella di 'Daily Challenge'. Questa categoria di requisiti risponde all'obbiettivo \ref{o2}.
+
+\subsubsection{Scelta alfabeti su cui allenarsi} \label{req_scelta_alfabeto}
+L'applicazione deve permettere all'utente di scegliere con quale alfabeto esercitarsi, sono possibili le seguenti scelte: Hiragana, Katakana o Kanji. \\
+Per questa funzionalità l'utente guest e quello registrato non potranno scegliere l'alfabeto Kanji. L'utente premium invece avrà la possibilità di scegliere gli alfabeti che preferisce.
+
+\subsubsection{Allenamento} \label{req_allenamento}
+L'applicazione deve offrire all'utente una modalità di allenamento. Una sessione di allenamento dura fino a quando l'utente non si è stufato di giocare oppure fino a quando non ha consumato tutti e 1000 i quiz che gli sono stati forniti. Questa funzionalità è disponibile per tutti i tipi di utenti.
+
+\subsubsection{Sfida giornaliera} \label{req_sfida_giornaliera}
+Il sistema deve fornire all'utente la possibilità di cimentarsi in una sfida giornaliera. La sfida può essere provata solo una volta, dopodichè sarà bloccata, fino al giorno successivo. In questa modalità, sarà possibile affrontare una sfida casuale tra due tipologie:
+\begin{itemize}
+    \item 5 quiz: 1 quiz Kanji + 2 quiz Katakana + 2 quiz Hiragana. Per completare la sfida l'utente avrà a disposizione 2 minuti nei quali dovrà completare tutti e cinque i quiz.  In caso di errore la sfida termina.
+    \item 30 quiz: saranno forniti all'utente trenta quiz casuali ai quali dovrà rispondere consecutivamente. Per completare la sfida l'utente dovrà rispondere correttamente a tutti e 30 i quesiti senza limite di tempo. In caso di 3 o più errori la sfida termina.
+\end{itemize}
+Questa funzionalità è disponibile per gli utenti registrati e di livello superiore.
+
+\subsection{Multiplayer} \label{req_multiplayer}
+Il sistema deve permettere all'utente di mettersi a confronto nella conoscenza degli alfabeti giapponesi, con altri giocatori. Durante una sfida fra due giocatori l'applicazione provvederà a somministrare ad entrambi i giocatori 10 quesiti uguali per entrambi i giocatori, 2 quiz Kanji + 4 quiz Katakana + 4 quiz Hiragana. Il primo giocatore che risponderà a tutte e 10 le domande farà terminare la sfida, con le domande incomplete dell'avversario che verranno considerate errate. A questo punto il sistema controllerà il numero di risposte corrette di ogni giocatore, decretando il vincitore della sfida e assegnando il punteggio. \\
+Questa funzione è disponibile soltanto per gli utenti registrati. Questa categoria di requisiti risponde all'obbiettivo \ref{o4}.
+
+\subsubsection{Mandare invito di sfida ad uno specifico giocatore} \label{req_invia_invito_sfida}
+ Il sistema deve permettere all'utente di sfidare un altro giocatore cercandolo attraverso il suo username. Deve essere quindi fornita la possibilità di mandare un invito di sfida ad un altro utente. \\
+ Questa funzionalità è disponibile per i soli utenti premium. 
+ 
+ \subsubsection{Ricezione invito di sfida} \label{req_accetazione_invito_sfida}
+ Il sistema deve permettere all'utente a cui è stato mandata la richiesta di sfida, di poterla accettare o declinare. L'accettazione o il declino della sfida avverrà tramite l'apparizione di una notifica, da parte dell'utente che riceve l'invito. Ricevuto l'invito l'utente dovrà cliccare il pulsante 'Accept', per accettarlo oppure 'Decline', per declinarlo. \\
+ Questa funzionalità è disponibile per gli utenti registrati e di livello superiore.
+ 
+ \subsubsection{Sfida di un giocatore casuale} \label{req_sfida_giocatore_casuale}
+ L'applicazione deve permettere all'utente di sfidare online un giocatore casuale. \\
+ Questa funzionalità è disponibile per gli utenti registrati e di livello superiore.
+ 
+ \subsection{Risultato score} \label{req_risultato_score}
+L'applicazione deve permettere all'utente, che sta giocando a qualche quiz, cliccando sul pulsante score di visualizzare tramite una finestra le seguenti informazioni: 
+\begin{itemize}
+    \item numero di quiz giocati finora;
+    \item numero di quiz risposti correttamente finora;
+    \item numero di quiz sbagliati finora;
+    \item rapporto numero di quiz corretti su quiz sbagliati finora.
+\end{itemize}
+Questa funzionalità è disponibile per tutti i tipi di utente. Questo requisito funzionale risponde all'obbiettivo \ref{o6}.
+ 
+ \subsection{Termina sessione di gioco} \label{req_termina_sessione_di_gioco}
+L'applicazione deve permettere all'utente di terminare la propria sessione di gioco in qualsiasi momento. \\
+Questa funzionalità è disponibile per tutti i tipi di utente.
+Questo requisito funzionale risponde all'obbiettivo \ref{o2}.
+
+\subsection{Visualizzazione statistiche} \label{req_visualizza_statistica}
+ L'applicazione deve dare la possibilità all'utente di visualizzare  le proprie statistiche personali, ovvero:
+\begin{itemize}
+    \item punteggio totale;
+    \item numero di vittorie, divise tra sfide giornaliere e ranked;
+    \item numero di sconfitte, divise tra sfide giornaliere e ranked;
+    \item rapporto vittorie e sconfitte, divise tra sfide giornaliere e ranked.
+\end{itemize}
+Questa funzionalità è disponibile per gli utenti registrati e di livello superiore. Questo requisito funzionale risponde all'obbiettivo \ref{o6}.
+
+\subsection{Visualizzazione classifica} \label{req_visualizza_classifica}
+L'applicazione permetterà all'utente di visualizzare la classifica globale, nella quale saranno visibili gli utenti, ordinati in base al punteggio ottenuto nelle sfide ranked. Per ogni utente sarà visibile un sottoinsieme delle sue statistiche. \\
+Questa funzionalità è disponibile per gli utenti guest e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o5}.
+
+\subsection{Ricerca di un giocatore nella classifica} \label{req_ricerca_classifica}
+Il sistema permetterà all'utente che si trova nella schermata della classifica, di effettuare la ricerca di un giocatore, per username. \\
+Questa funzionalità è disponibile per gli utenti guest e di livello superiore. Questo requisito risponde all'obbiettivo \ref{o5}.
+

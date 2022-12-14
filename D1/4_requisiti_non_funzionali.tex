@@ -1,0 +1,74 @@
+\section{Requisiti Non Funzionali}
+In questa sezione sono elencati i requisiti non funzionali dell'applicazione, ovvero tutte quelle proprietà dell'applicazione che non si riferiscono ad una funzionalità specifica, ma che descrivono una proprietà globale del sistema. È importante che queste proprietà siano misurabili e quindi non troppo generiche, perchè vogliamo che questi requisiti siano verificabili. I requisiti non funzionali, sono spesso legati ad uno o più requisiti funzionali.
+
+\subsection{Privacy}
+Devono essere rispettati i regolamenti di tutela dei dati dell'Unione Europea (GDPR). È possibile trovarne una copia \href{https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0679}{qui} per numerosi dettagli. Per questo motivo non saranno divulgati a terze parti i seguenti dati:
+\begin{itemize}
+    \item e-mail
+    \item nazione
+\end{itemize}
+
+\subsection{Sicurezza}
+Si vuole garantire la sicurezza del intero sistema e quindi vanno garantite le proprietà sottostanti.
+
+\subsubsection{Connessione sicura}
+Lo scambio di dati tra client e server deve avvenire in maniera criptata ed è quindi necessario l'utilizzo di https.
+
+\subsubsection{Caratteristiche password}
+Le password utilizzate per i diversi account dovranno essere delle strong password e dovranno quindi avere le seguenti caratteristiche: 
+\begin{itemize}
+    \item minimo otto caratteri;
+    \item minimo due numeri (0 \dots 9);
+    \item minimo un carattere speciale (\#, \$, £, @, \dots);
+    \item devono essere presenti sia lettere minuscole che lettere maiuscole.
+\end{itemize} 
+
+\subsubsection{Memorizzazione password tramite cifratura}
+Le password dei diversi account verranno memorizzate in maniera cifrata, utilizzando la funzione hash crittografica SHA256.
+
+\subsection{Efficienza}
+Si vogliono garantire le seguenti proprietà riguardati l'efficienza. Il requisito generico di efficienza risponde all'obiettivo \ref{o7}.
+
+\subsubsection{Tempo di risposta del sistema per la somministrazione dei quiz}
+Il tempo massimo entro il quale il sistema deve somministrare il quiz successivo, dopo che si ha già risposto al quiz precedente, non deve essere superiore a 3 secondi. A questo tempo sono esclusi i due secondi che il sistema attende ogni volta prima di passare al quiz successivo.
+
+\subsubsection{Tempo allestimento partita online}
+Il lasso di tempo che intercorre tra il matching con un avversario e la ricezione del primo quiz da parte dei due utenti online, non deve essere superiore a 10 secondi.
+
+\subsubsection{Tempo massimo di caricamento della classifica}
+Il tempo massimo entro il quale, nel momento in cui un utente accede alla classifica globale, vengono visualizzati i primi 100 giocatori, non deve essere superiore ai 3 secondi. 
+
+\subsubsection{Tempo massimo di ricerca di un giocatore nella classifica}
+Il tempo massimo entro il quale, nel momento in cui viene effettuata la ricerca di un giocatore all'interno della classifica, viene visualizzato (se presente) l'utente cercato, non deve essere superiore a 2 secondi.
+
+\subsection{Portabilità}
+Si vogliono garantire le seguenti proprietà riguardati la portabilità. Questa categoria di requisiti risponde all'obbiettivo \ref{o7}.
+
+\subsubsection{Compatibilità con browser differenti}
+L'applicazione dovrà poter essere utilizzata e quindi funzionare correttamente sui seguenti browser:
+\begin{itemize}
+    \item Google Chrome, versione 107.0.5304.87 o superiore.
+    \item Mozilla Firefox, versione 106.0.2 o superiore
+    \item Opera, versione 92.0.4561.21 o superiore
+\end{itemize}
+
+\subsubsection{Visualizzazione dell'interfaccia su dispositivi differenti}
+L’interfaccia deve essere visualizzata in maniera adeguata sia su desktop, ma anche su dispositivi mobili. Più nello specifico il range di pixel entro il quale l'applicazione dovrà essere visualizzata in maniera adeguata deve essere:
+\begin{itemize}
+    \item min width: 412 px
+    \item min height: 914 px
+    \item max width: 1920 px
+    \item max height: 1080 px
+\end{itemize}
+
+\subsection{Scalabilità}
+Si vogliono garantire le seguenti proprietà riguardati la scalabilità. Questa categoria di requisiti risponde all'obbiettivo \ref{o7}.
+
+\subsubsection{Elaborazione con un numero crescente di utenti}
+Siccome i dispositivi connessi potrebbero essere potenzialmente elevati, in quanto sono coinvolti sia dispositivi desktop, ma anche dispositivi mobili. Ci si aspetta che il sistema sia in grado di gestire un numero di utenti crescenti, con soglia massima pari a 10.000.
+
+\subsubsection{Memorizzazione dei dati con un numero crescente di utenti}
+Siccome i dispositivi connessi potrebbero essere potenzialmente elevati, in quanto sono coinvolti sia dispositivi desktop, ma anche dispositivi mobili. Ci si aspetta che il sistema sia in grado di memorizzare le informazioni necessarie per un numero di utenti crescenti, con soglia massima pari a 10.000.
+
+\subsection{Usabilità}
+L’interfaccia dell’applicazione deve essere facile ed intuitiva, ovvero, preso un utente medio che non conosce l’applicazione, questo deve essere in grado di comprenderne le funzionalità principali in 5-10 minuti. Questo requisito risponde all'obbiettivo \ref{o7}.
