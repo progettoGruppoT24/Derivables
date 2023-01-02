@@ -1,0 +1,137 @@
+\section{Codice in Object Constraint Language}
+In questo capitolo sono descritti in maniera formale alcuni vincoli che devono rispettare alcune classi, utilizzando il linguaggio OCL. Sono state prese le singole classi, per i quali sono state individuate delle OCL e per ognuna di esse si è proceduto alla descrizione delle OCL.
+
+\subsection{Sistema d'invio e-mail}
+Nella classe InterfacciaNodemailer sono stati individuati tre metodi che inviano e-mail:
+\begin{itemize}
+    \item inviaE-mailConfermaRegistrazione;
+    \item inviaE-mailResetCredenziali;
+    \item inviaE-mailRingraziamentoUpgradeProfilo.
+\end{itemize}
+Per inviare un e-mail è necessario, che questa sia valida e quindi devono valere le seguenti pre-condizioni: \\
+\\
+\hl{context InterfacciaNodemailer::inviaE-mailConfermaRegistrazione() \\
+pre: interfacciaNodemailer.isAValidE-mail=true} \\
+\\
+\hl{context InterfacciaNodemailer::inviaE-mailResetCredenziali(username) \\
+pre: interfacciaNodemailer.isAValidE-mail=true} \\
+\\
+\hl{context InterfacciaNodemailer::inviaE-mailRingraziamentoUpgradeProfilo() \\
+pre: interfacciaNodemailer.isAValidE-mail=true} \\
+
+
+\subsection{Registrazione e autenticazione}
+Prima di registrarsi devono valere due condizioni:
+\begin{enumerate}
+    \item che l'utente abbia premuto il reCAPTCHA;
+    \item che l'e-mail inserita dall'utente sia valida.
+\end{enumerate}
+\noindent
+Deve valere quindi la seguente condizione: \\
+\\
+\hl{context Registrazione::registraUtente(datiUtente) \\
+pre: (interfacciaNodemailer.isAValidE-mail=true) AND \\ 
+(validatoreReCAPTCHA.checkReCAPTCHA=true) \\}
+\\
+Inoltre si deve gestire la disponibilità del giocatore per gli inviti online e per questo motivo devono valere: \\
+\\
+\hl{context Autenticazione::loginConCredenziali(username, password) \\
+post: Utente.disponibilita=true} \\
+\\
+\hl{context Autenticazione::loginConGoogle(oneTimeCode) \\
+post: Utente.disponibilita=true} \\
+\\
+\hl{context Autenticazione::logout() \\
+post: Utente.disponibilita=false}
+
+\subsection{Reset delle credenziali}
+Per resettare le proprie credenziali è necessario che l'utente abbia cliccato sul reCAPTCHA, quindi deve valere la condizione: \\
+\\
+\hl{context ResetCredenziali::resettaCredenziali(e-mail) \\
+pre: validatoreReCAPTCHA.checkReCAPTCHA=true} \\
+\\
+Quello che questo metodo fa è quello di resettare la password dell'utente, con una casuale. Per questo motivo deve valere la post condizione: \\
+\\
+\hl{context ModificatoreCredenziali::resettaCredenziali(e-mail) \\
+post: Utente.password=Random(password)}
+
+\subsection{Modifica delle credenziali}
+Nella classe modificatore credenziali, sono riportati i due metodi:
+\begin{itemize}
+    \item effettuaModificaE-mail;
+    \item effettuaModificaPassword. 
+\end{itemize}
+Devono valere le seguenti post-condizioni: \\
+\\
+\hl{context ModificatoreCredenziali::effettuaModificaE-mail() \\
+post: Utente.e-mail=nuovaE-mail \\}
+\\
+\hl{context ModificatoreCredenziali::effettuaModificaPassword() \\
+post: Utente.password=nuovaPassword}
+
+\subsection{Upgrade del profilo a premium}
+Nella classe GestoreUpgradePremium oltre al metodo buyPremiumService(e-mail) è presente il metodo upgradeProfiloAPremium(e-mail), che si occupa di aggiornare il livello di privilegio dell'utente che ha fatto l'upgrade e di inviarli un e-mail di ringraziamento. Per questo metodo deve valere la seguente post-condizione: \\
+\\
+\hl{context GestoreUpgradePremium::upgradeProfiloAPremium(e-mail) \\
+post: Utente.isPremium=true}
+
+\subsection{Quiz}
+Esistono solamente 4 tipi di quiz, quindi deve valere la condizione: \\
+\\
+\hl{context Quiz inv: type $\geq$ 1 AND type $\leq$ 4} \\
+\\
+Esistono solo tre alfabeti diversi, di conseguenza vale la condizione: \\
+\\
+\hl{Context Quiz inv: alfabeto = 'Hiragana' OR alfabeto = 'Katakana' OR alfabeto = 'Kanji'} \\
+\\
+La soluzione del quiz deve essere una delle opzioni che l'utente può selezionare, di conseguenza vale: \\
+\\
+\hl{Context Quiz inv: soluzione = opzione1 OR soluzione = opzione2 OR soluzione = opzione3 OR soluzione = opzione4} \\
+\\
+Il testo della domanda di un quiz deve essere o il carattere giapponese di uno dei simboli o il suo significato/pronuncia: \\
+\\
+\hl{Context Quiz inv: self.domanda = SimboloAlfabeto.carattereGiapponese OR SimboloAlfabeto.valore} \\
+\\
+
+\subsection{QuizMaker}
+Ogni elemento del vettore alfabetiSelezionati deve essere uno tra gli alfabeti possibili dei quiz, quindi deve valere la condizione: \\
+\\
+\hl{Context QuizMaker inv: self.alfabetiSelezionati[n] = Quiz.alfabeto} \\
+\\
+Esistono solo tre tipi di modalità giocabili, di conseguenza vale la seguente condizione: \\
+\\
+\hl{Context QuizMaker inv: tipoModalita = 'training' OR tipoModalita = 'daily-challenge' OR tipoModalita = 'multiplayer'} \\
+\\
+
+\subsection{CorrettoreQuiz}
+La risposta dell'utente deve essere una delle opzioni messa a disposizione dal sistema, di conseguenza vale: \\
+\\
+\hl{Context CorrettoreQuiz inv: rispostaUtente = Quiz.opzione1 OR rispostaUtente = Quiz.opzione2 OR rispostaUtente = Quiz.opzione3 OR rispostaUtente = Quiz.opzone4} \\
+\\
+Dopo l'operazione checkCorrettezzaQuiz(quiz), il numero del quiz deve essere necessariamente incrementato: \\
+\\
+\hl{Context CorrettoreQuiz:: checkCorrettezzaQuiz(quiz) \\
+post: numeroQuiz += 1} \\
+\\
+Il numero del quiz non può che essere un numero positivo, quindi vale la condizione: \\
+\\
+\hl{Context CorrettoreQuiz inv: numeroQuiz $>$ 0} \\
+\\
+
+\subsection{InterpreteDisegni}
+L'interpretazione del disegno deve essere o un carattere giapponese della risorsa simboloAlfabeto oppure il suo significato/pronuncia: \\
+\\
+\hl{Context InterpreteDisegni inv: self.disegnoInterpretato = SimboloAlfabeto.valore OR self.disegnoInterpretato = SimboloAlfabeto.carattereGiapponese} \\
+\\
+
+\subsection{SfidaGiornaliera}
+Esistono solamente due tipi di sfida giornaliera, quindi vale la condizione: \\
+\\
+\hl{Context SfidaGiornaliera inv: type = 1 OR type = 2} \\
+\\
+L'operazione hasTimeEnded() viene eseguita solo ed esclusivamente nella sfida giornaliera di tipo 1: \\
+\\
+\hl{Context SfidaGiornaliera:: hasTimeEnded() \\
+pre: type = 1 \\}
+\\
+\hl{Context SfidaGiornaliera inv: numberOfErrors $\geq$ 0 AND numberOfErrors $\leq$ 3}
