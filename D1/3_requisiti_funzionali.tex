@@ -16,7 +16,7 @@ Questa funzionalità è disponibile per tutti i tipi di utente. Questo requisito
 L'applicazione permetterà all'utente di creare un proprio account, per far ciò verrà richiesto all'utente di fornire i seguenti dati:
 \begin{itemize}
     \item username, il quale dovrà essere univoco;
-    \item e-mail, il quale dovrà essere univoca;
+    \item e-mail, la quale dovrà essere univoca;
     \item password;
     \item nazione.
 \end{itemize}
@@ -84,7 +84,7 @@ L'applicazione deve permettere all'utente di scegliere con quale alfabeto eserci
 Per questa funzionalità l'utente guest e quello registrato non potranno scegliere l'alfabeto Kanji. L'utente premium invece avrà la possibilità di scegliere gli alfabeti che preferisce.
 
 \subsubsection{Allenamento} \label{req_allenamento}
-L'applicazione deve offrire all'utente una modalità di allenamento. Una sessione di allenamento dura fino a quando l'utente non si è stufato di giocare oppure fino a quando non ha consumato tutti e 1000 i quiz che gli sono stati forniti. Questa funzionalità è disponibile per tutti i tipi di utenti.
+L'applicazione deve offrire all'utente una modalità di allenamento. Una sessione di allenamento ha un numero indeterminato di quiz, ma la sessione può essere interrotta in un qualsiasi momento dall'utente tramite l'apposito pulsante "home". Questa funzione è disponibile per tutti gli utenti.
 
 \subsubsection{Sfida giornaliera} \label{req_sfida_giornaliera}
 Il sistema deve fornire all'utente la possibilità di cimentarsi in una sfida giornaliera. La sfida può essere provata solo una volta, dopodichè sarà bloccata, fino al giorno successivo. In questa modalità, sarà possibile affrontare una sfida casuale tra due tipologie:
@@ -95,7 +95,7 @@ Il sistema deve fornire all'utente la possibilità di cimentarsi in una sfida gi
 Questa funzionalità è disponibile per gli utenti registrati e di livello superiore.
 
 \subsection{Multiplayer} \label{req_multiplayer}
-Il sistema deve permettere all'utente di mettersi a confronto nella conoscenza degli alfabeti giapponesi, con altri giocatori. Durante una sfida fra due giocatori l'applicazione provvederà a somministrare ad entrambi i giocatori 10 quesiti uguali per entrambi i giocatori, 2 quiz Kanji + 4 quiz Katakana + 4 quiz Hiragana. Il primo giocatore che risponderà a tutte e 10 le domande farà terminare la sfida, con le domande incomplete dell'avversario che verranno considerate errate. A questo punto il sistema controllerà il numero di risposte corrette di ogni giocatore, decretando il vincitore della sfida e assegnando il punteggio. \\
+Il sistema deve permettere all'utente di mettersi a confronto nella conoscenza degli alfabeti giapponesi, con altri giocatori. Durante una sfida fra due giocatori l'applicazione provvederà a somministrare ad entrambi i giocatori 10 quesiti uguali, 2 quiz Kanji + 4 quiz Katakana + 4 quiz Hiragana. Il primo giocatore che risponderà a tutte e 10 le domande farà terminare la sfida, con le domande incomplete dell'avversario che verranno considerate errate. A questo punto il sistema controllerà il numero di risposte corrette di ogni giocatore, decretando il vincitore della sfida e assegnando il punteggio. \\
 Questa funzione è disponibile soltanto per gli utenti registrati. Questa categoria di requisiti risponde all'obbiettivo \ref{o4}.
 
 \subsubsection{Mandare invito di sfida ad uno specifico giocatore} \label{req_invia_invito_sfida}
@@ -107,7 +107,7 @@ Questa funzione è disponibile soltanto per gli utenti registrati. Questa catego
  Questa funzionalità è disponibile per gli utenti registrati e di livello superiore.
  
  \subsubsection{Sfida di un giocatore casuale} \label{req_sfida_giocatore_casuale}
- L'applicazione deve permettere all'utente di sfidare online un giocatore casuale. \\
+ L'applicazione deve permettere all'utente di sfidare online un giocatore casuale. Questo tipo di sfida è considerato "ranked", ossia i punteggi ottenuti in essa verranno memorizzati. \\
  Questa funzionalità è disponibile per gli utenti registrati e di livello superiore.
  
  \subsection{Risultato score} \label{req_risultato_score}
